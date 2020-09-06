@@ -6,7 +6,10 @@ editor.commands.addCommand({
   name: 'execute',
   bindKey: {win: 'Ctrl-Enter',  mac: 'Command-Enter'},
   exec: function(editor) {
-    eval(editor.getValue());
+    if (!clicked) {
+      text = editor.getValue();
+      document.getElementById('code').innerHTML += '<script>' + text + '</script>'
+    }
     toggle();
   },
   readOnly: true // false if this command should not apply in readOnly mode
