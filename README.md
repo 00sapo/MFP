@@ -26,9 +26,10 @@ Imagine the keyboard as a matrix. Keys from `1` to `/` (US layout) are the matri
 
 MFP works by letting the user defining its own mapping. The user can select the
 code and press `Ctrl+Enter` to evaluate it and go to performance mode, where he
-can play music by pressing the keyboard keys. Cells will also be supported:
-that way, if user doesn't select any text, the current cell will be evaluated.
-Cells are delimited by lines containing `%%`.
+can play music by pressing the keyboard keys. Cells are supported too: that
+way, if user doesn't select any text, the current cell will be evaluated. If no
+cell exists, the whole text is used.  Cells are delimited by lines containing
+`////`.
 
 In the following you will learn how to map sounds to the keys.
 
@@ -106,8 +107,8 @@ Important files:
 
 ## TODO
 
-0. Add cells of code
 1. Add utility to create loops with a modifier key
-3. Add mouse support to control parameters
-4. Add tabs to the editor
-5. Add graphical representation of sound objects
+2. Add mouse support to control parameters
+3. Add tabs to the editor
+4. Add graphical representation of sounds and players
+5. Add configuration yaml or json
