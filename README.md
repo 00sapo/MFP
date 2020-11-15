@@ -24,6 +24,14 @@ MFP works with the US layout for now.
 
 Imagine the keyboard as a matrix. Keys from `1` to `/` (US layout) are the matrix cells. We have 4 rows and 10 columns. We can map sound objects to sub-matrices by specifying the top-left and bottom-right corners.
 
+MFP works by letting the user defining its own mapping. The user can select the
+code and press `Ctrl+Enter` to evaluate it and go to performance mode, where he
+can play music by pressing the keyboard keys. Cells will also be supported:
+that way, if user doesn't select any text, the current cell will be evaluated.
+Cells are delimited by lines containing `%%`.
+
+In the following you will learn how to map sounds to the keys.
+
 ### Changing parameters at mapping time
 
 To map objects, we use the function `map`:
@@ -82,16 +90,24 @@ map('q', 's', function(i, j){
   }
 );
 
-```
+## Developing
+
+Important files:
+* `app/assets/js/functioning.js`: utilities to toggle the running mode
+    (coding/performance) and running user code
+* `app/assets/js/mapping.js`: core stuffs for mapping objects to the keyboard usng Tone.js
+* `app/assets/js/recorder.js`: utilities to record sounds using Tone.js
+* `app/assets/js/recorderWorkletProcessor.js`: utilities to record sounds using Tone.js
+* `app/assets/js/Tone.js`: the Tone.js library
+* `app/assets/js/ace-config.js`: utilities to configure the editor
+* `app/assets/css`: css styles for the app
+* `app/index.html`: the base html with interface and included scripts
+* `app/settings.json`: settings for neutralinojs
 
 ## TODO
 
-0. Improve the evaluation of code:
-  1. everything in the same tag
-  2. no re-evaluation of already evaluated code
-  3. evaluate only selected code
-1. Implement a little console
-2. Add utility to create loops with a modifier key
-3. Add tabs to the editor
-4. Add mouse support to control parameters
-5. Add a little HTTP portable webserver (or maybe move to nw.js)
+0. Add cells of code
+1. Add utility to create loops with a modifier key
+3. Add mouse support to control parameters
+4. Add tabs to the editor
+5. Add graphical representation of sound objects

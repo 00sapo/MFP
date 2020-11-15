@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title> Music For Poors </title>
+  </head>
+
+  <body>
+
+    <div id="page">
+      <div id="perfomance_area">
+        <div id="press_area" onclick='toggle();'>
+          <h2 id="header">Click me to start playing or press Ctrl+Enter from the editor</h2>
+          <p id="pressed_keys"/>
+        </div>
+
+        <div id="editor">map(
+  '1', 'v',
+  function (i, j) {
+    // with parameter computed during mapping
+    return new Tone.Oscillator(220 + (i*j + j) * 50).toDestination();
+  }
+);
+
+map(
+  '5', '/',
+  generator=function (i, j) {
+    // with parameter computed at playing-time
+    return new Tone.Synth().toDestination();
+  },
+  playfunc=function(obj, i, j) {
+    obj.triggerAttack(220 + (i*j + j) * 50);
+  }
+);</div>
+      </div>
+    </div>
+
+    <script src="/neutralino.js"></script>
+
+    <link rel="stylesheet" href='/assets/css/style.css' type="text/css"></link>
+
+    <script src='/assets/js/functioning.js'></script>
+    <script src='/assets/js/mapping.js'></script>
+    <script src='/assets/js/Tone.js'></script>
+    <script src='/assets/js/recorder.js'></script>
+
+    <script src='/assets/js/ace/ace.js'></script>
+    <script src='/assets/js/ace-config.js'></script>
+
+    <div id='code'></div>
+
+  </body>
+</html>
